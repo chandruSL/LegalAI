@@ -1,0 +1,5 @@
+Users Created:
+ - Lawyer: lawyer1@example.com / password123
+ - Lawyer: lawyer2@example.com / password123
+ - Client: client1@example.com / password123 (Linked to Lawyer 1)
+ - Client: client2@example.com / password123

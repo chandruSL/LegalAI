@@ -1,0 +1,156 @@
+Product Requirements Document
+AI-Powered Two-Sided Legal Assistance and Case Prediction Platform
+
+1. Product Overview
+   The AI-Powered Two-Sided Legal Assistance and Case Prediction Platform is a full-stack web-based system designed to digitally connect legal clients and lawyers through secure, role-based portals. The platform provides law-specific AI assistance via a constrained legal chatbot, structured case management workflows, and an AI-driven advisory case outcome prediction engine. The solution is intended for informational and decision-support purposes only and does not provide legally binding advice.
+
+2. Problem Statement
+   Access to timely, structured, and understandable legal information remains limited for many clients, while lawyers face inefficiencies in managing multiple clients, case documents, and historical references. Existing legal platforms often lack intelligent document understanding, predictive insights, and strict data isolation between clients and advocates. There is a need for a system that ensures secure client-lawyer interaction, domain-restricted AI responses, and document-based advisory predictions while maintaining compliance with role separation and privacy expectations.
+
+3. Goals and Objectives
+   The primary goal is to build a secure, scalable legal assistance platform that improves legal information accessibility and case management efficiency. Key objectives include:
+
+* Providing a law-domain-only AI chatbot for clients
+* Enabling secure client-lawyer linkage with strict data isolation
+* Offering AI-based advisory case outcome predictions from legal documents
+* Supporting structured case updates and document uploads by lawyers
+* Ensuring enterprise-grade security, access control, and auditability
+
+4. Scope of the System
+   The system will include user and lawyer onboarding, authentication, dashboards, AI chatbot integration, PDF-based case prediction, and case lifecycle management. Out of scope are real-time court integrations, automated legal filing, payment processing, and legally binding recommendations. Deployment is optional and may be limited to prototype or staging environments.
+
+5. Functional Requirements
+
+* User Registration and Authentication
+
+  * Clients and lawyers must register separately with role assignment
+  * Secure login using JWT-based authentication
+* Role-Based Dashboards
+
+  * Client dashboard for chatbot access, case status, and predictions
+  * Lawyer dashboard for managing assigned clients and case documents
+* AI Legal Chatbot
+
+  * Accepts text-based legal queries from clients
+  * Produces non-generic, law-domain-restricted responses
+  * Uses prompt filtering and custom function calling to prevent off-topic output
+* Client-Lawyer Linking
+
+  * Clients can select a lawyer to create a secure association
+  * Data visibility restricted to linked parties only
+* Case Management
+
+  * Lawyers can upload case details, judgments, and updates (text/PDF)
+  * Clients can view only their own case information
+* Case Outcome Prediction
+
+  * Users or lawyers can upload case PDFs
+  * System processes documents and generates win/loss probability
+  * Predictions displayed primarily to lawyers, optionally summarized for clients
+* Document Handling
+
+  * Secure PDF upload, storage, and retrieval
+  * Metadata tagging with case ID, timestamps, and ownership
+
+6. Non-Functional Requirements
+
+* Security: Strong authentication, authorization, and data isolation
+* Performance: PDF processing and predictions within acceptable latency
+* Scalability: Modular backend supporting multiple concurrent users
+* Reliability: Fault-tolerant AI calls and document handling
+* Compliance: Adherence to data privacy and ethical AI usage norms
+* Usability: Intuitive dashboards for both clients and lawyers
+
+7. System Architecture Overview
+   The system follows a client-server architecture. The frontend is a React or Next.js web application communicating with a backend service built on Node.js with Express or FastAPI. The backend handles authentication, role-based access, business logic, and AI orchestration. The AI layer integrates with the Gemini API for document understanding and prediction. Persistent data is stored in a relational or NoSQL database, while documents are stored in cloud or local storage.
+
+8. Data Sources and Datasets
+
+* Public Indian legal judgment datasets from eCourts and Supreme Court repositories
+* Open-source legal case PDF collections
+* Synthetic and sample legal documents for testing
+* Legal-domain NLP corpora for prompt and logic tuning
+
+9. AI/ML Models and Algorithms
+
+* Gemini Large Language Model for PDF parsing, summarization, and outcome prediction
+* NLP pipelines for text extraction and preprocessing
+* Text classification logic for win/loss probability estimation
+* Prompt filtering and function calling to restrict chatbot scope
+* Rule-based RBAC enforcement integrated with AI responses
+
+10. Third-Party Integrations
+
+* Gemini API for document analysis and prediction
+* Cloud storage services such as Firebase Storage or AWS S3 (optional)
+* Authentication libraries for JWT handling
+* PDF parsing libraries for text extraction
+
+11. User Experience Flow
+
+* Client or lawyer registers and logs in
+* Client accesses AI chatbot for legal queries
+* Client selects a lawyer, establishing secure linkage
+* Lawyer logs in and views assigned clients
+* Lawyer uploads case details and updates
+* Client views linked case information
+* Case PDF uploaded for prediction
+* AI processes document and returns advisory outcome
+* Dashboards update with prediction and case status
+
+12. Alerting and Notification Logic
+
+* In-app notifications for case updates
+* Status indicators for newly uploaded documents or predictions
+* Optional email notifications in future iterations
+
+13. Analytics and Reporting
+
+* Usage metrics for chatbot interactions
+* Prediction request counts and response times
+* Case lifecycle tracking per lawyer and client
+* Basic audit logs for access and updates
+
+14. Security and Privacy Considerations
+
+* JWT-based role authentication and authorization
+* Strict RBAC enforcement across all APIs
+* Data isolation between unrelated users and lawyers
+* Secure file storage with access controls
+* Clear disclaimers on advisory nature of predictions
+
+15. Deployment Strategy
+    Deployment is optional and may include local, staging, or cloud-based environments. Containerization and CI/CD pipelines may be introduced if deployment is pursued.
+
+16. Assumptions and Constraints
+
+* Prediction results are advisory and non-binding
+* Accuracy depends on quality and completeness of uploaded documents
+* Public legal datasets are sufficient for prototype validation
+* Deployment scope may be limited by time constraints
+
+17. Success Metrics
+
+* Successful role-based login and data isolation
+* Accuracy and relevance of legal chatbot responses
+* System stability during concurrent usage
+* User and lawyer engagement with dashboards
+* Timely generation of prediction outputs
+
+18. Risks and Mitigation
+
+* Risk of generic or off-domain AI responses mitigated by prompt filtering
+* Data leakage risk mitigated through RBAC and secure APIs
+* Model misinterpretation mitigated with disclaimers and human oversight
+* Dataset bias mitigated by using diverse public legal sources
+
+19. Future Enhancements
+
+* Advanced case similarity search
+* Multilingual legal chatbot support
+* Integration with court scheduling systems
+* Explainable AI features for prediction transparency
+* Full production-grade deployment and monitoring
+
+20. Conclusion
+    This platform provides a structured, secure, and AI-assisted approach to legal information access and case management. By combining role-based system design with legal-domain AI and document-driven predictions, the solution addresses key inefficiencies while maintaining ethical, privacy, and advisory boundaries suitable for academic, client, and engineering validation.

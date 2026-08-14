@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic[email]
+python-jose[cryptography]
+passlib[bcrypt]
+google-generativeai
+python-multipart
+ariadne
+pypdf
+argon2-cffi
+python-dotenv
